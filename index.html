@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi Coin (MLT) — Official</title>
+  <meta name="description" content="Multi (MLT) — Community‑first meme crypto on BSC. 1T supply, 50% burn, 100% LP lock, fair presale (coming soon)." />
+  <meta property="og:title" content="Multi Coin (MLT) — Official" />
+  <meta property="og:description" content="1T supply • 50% burn • 100% LP lock • Presale coming soon • Read the whitepaper." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1120;            /* deep space blue */
+      --bg2:#0a1a33;           /* darker accent */
+      --text:#eef2ff;          /* soft white */
+      --muted:#a8b3cf;         /* slate */
+      --accent:#ffd84d;        /* warm yellow */
+      --accent-2:#5fc1ff;      /* cyan */
+      --accent-3:#9b5cff;      /* violet */
+      --card:rgba(16,26,46,.6);
+      --stroke:rgba(255,255,255,.12);
+      --radius:18px;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(160deg,#051029 0%,#0b1120 35%,#0b152a 60%,#0a1a33 100%);}    
+
+    /* subtle animated aurora background */
+    .bg-aurora{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;filter:blur(40px) saturate(120%);}    
+    .blob{position:absolute;border-radius:50%;opacity:.35;mix-blend-mode:screen;animation:float 14s ease-in-out infinite;}
+    .b1{width:520px;height:520px;background:radial-gradient(circle at 30% 30%, var(--accent) 0%, transparent 60%);left:-120px;top:-80px}
+    .b2{width:600px;height:600px;background:radial-gradient(circle at 60% 40%, var(--accent-2) 0%, transparent 60%);right:-160px;top:-40px;animation-delay:2s}
+    .b3{width:480px;height:480px;background:radial-gradient(circle at 50% 50%, var(--accent-3) 0%, transparent 60%);left:20%;bottom:-120px;animation-delay:4s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(5,10,24,.85), rgba(5,10,24,.55));backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:42px;height:42px;border-radius:50%;border:1px solid var(--stroke);background:#0d1b2a}
+    .brand h1{font-size:18px;margin:0;font-weight:800;letter-spacing:.3px}
+    .links{display:flex;gap:18px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);background:linear-gradient(180deg,#13233e,#0b1527);padding:10px 14px;border-radius:999px;color:var(--text);box-shadow:var(--shadow)}
+    .btn.primary{border-color:rgba(255,216,77,.45);background:linear-gradient(180deg,#ffe385,#f6c12b);color:#1a1200;font-weight:800}
+    .btn.ghost{background:transparent}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* hero */
+    .hero{padding:86px 0}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px}
+    .hero h2{font-size:48px;line-height:1.05;margin:0 0 12px;font-weight:800;letter-spacing:.2px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);color:#12100b;background:linear-gradient(180deg,#ffe385,#f6c12b);font-weight:800;font-size:12px;margin-bottom:12px}
+    .panel{background:linear-gradient(180deg, rgba(255,216,77,.08), rgba(95,193,255,.10));border:1px solid var(--stroke);border-radius:var(--radius);padding:18px}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .stat{background:rgba(16,26,46,.55);backdrop-filter:blur(6px);border:1px solid var(--stroke);border-radius:14px;padding:14px;text-align:center}
+    .stat b{font-size:22px}
+    .stat span{display:block;color:var(--muted);font-size:12px}
+
+    /* sections */
+    .section{padding:60px 0}
+    .section h3{font-size:28px;margin:0 0 12px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:rgba(16,26,46,.5);border:1px solid var(--stroke);border-radius:var(--radius);padding:18px}
+    .card h4{margin:8px 0 6px;font-size:18px}
+    .muted{color:var(--muted)}
+
+    /* tokenomics bars */
+    .bars{display:grid;gap:12px}
+    .bar{background:#0b1527;border:1px solid var(--stroke);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:14px;background:linear-gradient(90deg,var(--accent),#ffe385)}
+    .label{display:flex;justify-content:space-between;font-size:13px;margin-top:6px;color:var(--muted)}
+
+    /* roadmap */
+    .timeline{border-left:2px dashed rgba(255,216,77,.5);padding-left:16px;display:grid;gap:18px}
+    .mile b{color:#ffe385}
+
+    /* footer */
+    footer{padding:42px 0;border-top:1px solid var(--stroke);color:var(--muted)}
+    .social a{display:inline-flex;align-items:center;gap:6px;margin-right:10px;opacity:.9}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(3,1fr)}
+      .hero h2{font-size:38px}
+    }
+    @media (max-width:520px){
+      .stats{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- animated background blobs -->
+  <div class="bg-aurora" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <!-- Put your logo at assets/logo.png (the M coin image you shared) -->
+        <img src="assets/logo.png" alt="Multi Coin logo">
+        <h1>Multi Coin</h1>
+      </div>
+      <nav class="links">
+        <a href="#features">Features</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#links">Links</a>
+        <a class="btn primary" href="#presale">Presale: Coming Soon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="grid">
+        <div>
+          <span class="tag">BSC • BEP‑20 • Contract: <span style="font-feature-settings:'tnum' 1">0x9034...b8A8</span></span>
+          <h2>Community‑first crypto with <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent">meme power</span> & real plans.</h2>
+          <p>Multi (MLT) blends meme energy with responsible tokenomics: <b>1T supply</b>, <b>50% burn</b>, and <b>100% LP lock</b>. Fair <b>presale coming soon</b> — no deadlines, no pressure.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn primary" href="#presale">Join Presale (soon)</a>
+            <a class="btn" href="whitepaper.pdf" target="_blank" rel="noopener">Read Whitepaper</a>
+            <a class="btn ghost" href="#how">How to Buy</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b id="supply">1,000,000,000,000</b><span>Total Supply</span></div>
+            <div class="stat"><b>50%</b><span>Burn at Launch</span></div>
+            <div class="stat"><b>100%</b><span>LP Locked</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <h3 style="margin:0 0 8px">Presale Status</h3>
+            <p class="muted" style="margin:0">🚀 <b>Coming Soon</b> — final dates will be announced on socials.</p>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn primary" href="#presale">Presale Info</a>
+              <a class="btn" href="whitepaper.pdf" target="_blank" rel="noopener">Whitepaper</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section wrap">
+      <h3>Why Multi Coin?</h3>
+      <div class="cards">
+        <article class="card">
+          <h4>🔥 50% Initial Burn</h4>
+          <p class="muted">500B MLT permanently removed at launch to create scarcity and accelerate deflation.</p>
+        </article>
+        <article class="card">
+          <h4>🔒 100% Liquidity Lock</h4>
+          <p class="muted">LP fully locked for long‑term trust and trading stability.</p>
+        </article>
+        <article class="card">
+          <h4>🛡️ Transparent & Fair</h4>
+          <p class="muted">Founder & Developer allocations locked long‑term. Contract verified on BscScan.</p>
+        </article>
+        <article class="card">
+          <h4>🎁 Giveaways & Airdrops</h4>
+          <p class="muted">Dedicated allocation for community rewards and future burns.</p>
+        </article>
+        <article class="card">
+          <h4>⚡ BSC Speed & Fees</h4>
+          <p class="muted">Fast blocks, low fees, and access to PancakeSwap liquidity.</p>
+        </article>
+        <article class="card">
+          <h4>🗳️ Community Governance</h4>
+          <p class="muted">Holders help decide burn schedules, campaigns, and ecosystem growth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tokenomics" class="section wrap">
+      <h3>Tokenomics</h3>
+      <div class="bars">
+        <div>
+          <div class="bar"><i style="width:50%"></i></div>
+          <div class="label"><span>Burn</span><span>50%</span></div>
+        </div>
+        <div>
+          <div class="bar"><i style="width:20%"></i></div>
+          <div class="label"><span>Presale</span><span>20%</span></div>
+        </div>
+        <div>
+          <div class="bar"><i style="width:50%"></i></div>
+          <div class="label"><span>Liquidity Pool</span><span>50%</span></div>
+        </div>
+        <div>
+          <div class="bar"><i style="width:10%"></i></div>
+          <div class="label"><span>Founder (Locked)</span><span>10%</span></div>
+        </div>
+        <div>
+          <div class="bar"><i style="width:10%"></i></div>
+          <div class="label"><span>Developer (Locked)</span><span>10%</span></div>
+        </div>
+        <div>
+          <div class="bar"><i style="width:10%"></i></div>
+          <div class="label"><span>Future Burns & Giveaways</span><span>10%</span></div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px">Total Supply: <b>1,000,000,000,000 MLT</b> • Chain: <b>Binance Smart Chain (BEP‑20)</b> • Contract: <code>0x903404e6B32D1376CE0BfA62681799c92737b8A8</code></p>
+    </section>
+
+    <section id="how" class="section wrap">
+      <h3>How to Buy (Presale)</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>1) Install a wallet</h4>
+          <p class="muted">Use MetaMask or Trust Wallet and add BSC network.</p>
+        </div>
+        <div class="card">
+          <h4>2) Fund with BNB</h4>
+          <p class="muted">BNB is required for contribution & gas fees.</p>
+        </div>
+        <div class="card">
+          <h4>3) Join presale</h4>
+          <p class="muted">When live, open the presale link, enter amount, and confirm.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section wrap">
+      <h3>Roadmap</h3>
+      <div class="timeline">
+        <div class="mile"><b>Phase 1:</b> Token creation & contract, 50% burn, website & whitepaper, presale launch.</div>
+        <div class="mile"><b>Phase 2:</b> PancakeSwap listing, CoinMarketCap/CoinGecko applications, meme campaigns, giveaways.</div>
+        <div class="mile"><b>Phase 3:</b> CEX listings, NFT collection, partnerships, 50k+ holders.</div>
+        <div class="mile"><b>Phase 4:</b> DAO‑style governance, staking & yield, ecosystem expansion.</div>
+      </div>
+    </section>
+
+    <section id="links" class="section wrap">
+      <h3>Official Links</h3>
+      <div class="cards">
+        <a class="card" href="https://github.com/multiecosystem" target="_blank" rel="noopener">
+          <h4>💻 GitHub — multiecosystem</h4>
+          <p class="muted">Open‑source code & website repository.</p>
+        </a>
+        <a class="card" href="whitepaper.pdf" target="_blank" rel="noopener">
+          <h4>📄 Whitepaper (PDF)</h4>
+          <p class="muted">All details about token, tokenomics & roadmap.</p>
+        </a>
+        <div class="card">
+          <h4>🔗 Socials</h4>
+          <p class="muted">Add your Twitter & Telegram links here.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="social">
+        <a href="https://github.com/multiecosystem" target="_blank" rel="noopener" aria-label="GitHub">💻 GitHub</a>
+        <a href="#" aria-label="Twitter">🐦 Twitter</a>
+        <a href="#" aria-label="Telegram">💬 Telegram</a>
+      </div>
+      <p style="margin-top:8px">© <span id="year"></span> Multi Coin (MLT). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Nothing time-based — presale is simply "coming soon" as requested.
+  </script>
+</body>
+</html>
