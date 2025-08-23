@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multi Coin (MLT) — Official</title>
   <meta name="description" content="Multi (MLT) — Community‑first meme crypto on BSC. 1T supply, 50% burn, 100% LP lock, fair presale (coming soon)." />
   <meta property="og:title" content="Multi Coin (MLT) — Official" />
@@ -68,7 +68,7 @@
     /* sections */
     .section{padding:60px 0}
     .section h3{font-size:28px;margin:0 0 12px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
     .card{background:rgba(16,26,46,.5);border:1px solid var(--stroke);border-radius:var(--radius);padding:18px}
     .card h4{margin:8px 0 6px;font-size:18px}
     .muted{color:var(--muted)}
@@ -89,14 +89,15 @@
 
     /* responsive */
     @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .stats{grid-template-columns:repeat(3,1fr)}
-      .hero h2{font-size:38px}
-    }
-    @media (max-width:520px){
-      .stats{grid-template-columns:1fr 1fr}
-    }
+  .grid{grid-template-columns:1fr}
+  .hero h2{font-size:38px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .links{gap:12px;justify-content:center;flex-wrap:wrap}
+}
+   @media (max-width:520px){
+  .stats{grid-template-columns:1fr}
+  .hero h2{font-size:28px}
+}
   </style>
 </head>
 <body>
@@ -111,7 +112,7 @@
     <div class="wrap nav">
       <div class="brand">
         <!-- Put your logo at assets/logo.png (the M coin image you shared) -->
-        <img src="assets/logo.png" alt="Multi Coin logo">
+      <img src="assets/logo.png" alt="Multi Coin logo" style="max-width:100%; height:auto;">
         <h1>Multi Coin</h1>
       </div>
       <nav class="links">
